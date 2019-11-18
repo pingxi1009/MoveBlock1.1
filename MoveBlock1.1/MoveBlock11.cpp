@@ -5,6 +5,7 @@ MoveBlock11::MoveBlock11(QWidget *parent)
 {
 	ui.setupUi(this);
 
+
 	// 传到界面上显示
 	ui.widget->MoveToArea(1, 1);
 }
