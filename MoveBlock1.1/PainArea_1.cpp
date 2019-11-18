@@ -12,6 +12,7 @@ PainArea_1::~PainArea_1()
 {
 }
 
+// 传入参数
 void PainArea_1::MoveToArea(int x, int y)
 {
 
@@ -57,9 +58,6 @@ void PainArea_1::paintEvent(QPaintEvent * event)
 	// 画出方块初始位置
 	painter.setBrush(QColor(0x22, 0x22, 0xFF));
 	painter.drawRect(LittleToBig(QPoint((h - 4) / 3, (h - 4) / 3)).x(), LittleToBig(QPoint((h - 4) / 3, (h - 4) / 3)).y(), (h - 4)/3, (h - 4) / 3);
-
-
-
 
 }
 
