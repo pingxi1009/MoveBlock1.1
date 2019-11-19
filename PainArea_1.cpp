@@ -65,6 +65,7 @@ void PainArea_1::paintEvent(QPaintEvent * event)
 
 	// 画出移动的方块
 	painter.drawRect(LittleToBig(m_point).x(), LittleToBig(m_point).y(), (h - 4) / 3, (h - 4) / 3);
+
 	//painter.drawRect(LittleToBig(QPoint((h - 4) / 3, (h - 4) / 3)).x(), LittleToBig(QPoint((h - 4) / 3, (h - 4) / 3)).y(), (h - 4)/3, (h - 4) / 3);
 
 }
