@@ -19,6 +19,7 @@ MoveBlock11::MoveBlock11(QWidget *parent)
 	connect(ui.pushButton_next, SIGNAL(clicked(bool)), this, SLOT(NextStep(bool)));
 }
 
+// 初始化窗口使得获取窗口长宽
 void MoveBlock11::InitWidget()
 {
 	int w = ui.widget->width();

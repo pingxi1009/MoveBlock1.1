@@ -13,6 +13,7 @@ public:
 	// 矫正方块移动防止出范围
 	void CheckArea(QPoint &stepP);
 
+	// 初始化窗口使得获取窗口长宽
 	void InitWidget();
 
 private:
