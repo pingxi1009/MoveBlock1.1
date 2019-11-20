@@ -15,6 +15,8 @@ MoveBlock11::MoveBlock11(QWidget *parent)
 	connect(ui.pushButton_zuo, SIGNAL(clicked(bool)), this, SLOT(MoveZuo(bool)));
 	connect(ui.pushButton_you, SIGNAL(clicked(bool)), this, SLOT(MoveYou(bool)));
 
+
+
 }
 
 void MoveBlock11::InitWidget()
