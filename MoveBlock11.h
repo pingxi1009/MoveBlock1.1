@@ -13,11 +13,15 @@ public:
 	// 矫正方块移动防止出范围
 	void CheckArea(QPoint &stepP);
 
+	void InitWidget();
+
 private:
 	Ui::MoveBlock11Class ui;
 
 	QPoint p_orin;
-	int moveCell;
+	int m_moveCell;
+	bool m_flag;
+	bool m_saveflag;
 
 private slots:
 	// 上移

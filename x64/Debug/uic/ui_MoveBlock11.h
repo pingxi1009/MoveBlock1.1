@@ -53,7 +53,7 @@ public:
     {
         if (MoveBlock11Class->objectName().isEmpty())
             MoveBlock11Class->setObjectName(QStringLiteral("MoveBlock11Class"));
-        MoveBlock11Class->resize(836, 776);
+        MoveBlock11Class->resize(836, 802);
         centralWidget = new QWidget(MoveBlock11Class);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_2 = new QVBoxLayout(centralWidget);

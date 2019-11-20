@@ -6,7 +6,7 @@ public:
 	PainArea_1(QWidget *parent);
 	~PainArea_1();
 
-	void MoveToArea(QPoint p);
+	void MoveToArea(QPoint p, bool flag);
 
 	// 大长方形转到小正方形中的坐标
 	QPoint BigToLittle(QPoint p);
@@ -15,5 +15,6 @@ public:
 private:
 	void paintEvent(QPaintEvent * event);
 	QPoint m_point;
+	bool m_flag;
 };
 
