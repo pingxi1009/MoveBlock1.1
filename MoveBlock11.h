@@ -32,5 +32,9 @@ private slots:
 	void MoveZuo(bool flag);
 	// 右移
 	void MoveYou(bool flag);
+	// 上一步
+	void UpStep(bool flag);
+	// 下一步
+	void NextStep(bool flag);
 	
 };
