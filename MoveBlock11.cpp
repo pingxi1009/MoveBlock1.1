@@ -14,8 +14,9 @@ MoveBlock11::MoveBlock11(QWidget *parent)
 	connect(ui.pushButton_xia, SIGNAL(clicked(bool)), this, SLOT(MoveXia(bool)));
 	connect(ui.pushButton_zuo, SIGNAL(clicked(bool)), this, SLOT(MoveZuo(bool)));
 	connect(ui.pushButton_you, SIGNAL(clicked(bool)), this, SLOT(MoveYou(bool)));
-
-
+	
+	connect(ui.pushButton_up, SIGNAL(clicked(bool)), this, SLOT(UpStep(bool)));
+	connect(ui.pushButton_next, SIGNAL(clicked(bool)), this, SLOT(NextStep(bool)));
 
 
 }
@@ -124,4 +125,15 @@ void MoveBlock11::MoveYou(bool flag)
 
 	// 传到界面上显示
 	ui.widget->MoveToArea(p_orin, m_flag);
+}
+
+// 上一步
+void MoveBlock11::UpStep(bool flag)
+{
+
+}
+// 下一步
+void MoveBlock11::NextStep(bool flag)
+{
+
 }
