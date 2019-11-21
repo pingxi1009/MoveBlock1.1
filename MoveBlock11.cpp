@@ -6,9 +6,13 @@ MoveBlock11::MoveBlock11(QWidget *parent)
 {
 	ui.setupUi(this);
 	
-
 	m_flag = true;
 	m_saveflag = true;
+	m_itflag = true;
+
+	ui.pushButton_next->setDisabled(true);
+	ui.pushButton_up->setDisabled(true);
+	m_hisPos.clear();
 
 	connect(ui.pushButton_shang, SIGNAL(clicked(bool)), this, SLOT(MoveShang(bool)));
 	connect(ui.pushButton_xia, SIGNAL(clicked(bool)), this, SLOT(MoveXia(bool)));
@@ -28,6 +32,16 @@ void MoveBlock11::InitWidget()
 	m_moveCell = (h - 4) / 3;
 	p_orin.setX(m_moveCell);
 	p_orin.setY(m_moveCell);
+
+	////测试
+	//QList<int> temp_i;
+	//temp_i.append(1);
+	//qDebug() << *temp_i.begin() << " " << *temp_i.end();
+
+	// 初始化第一个点
+	m_hisPos.append(p_orin);
+	m_itrp = m_hisPos.end();
+	qDebug() << "初始化" <<(*m_itrp).x() << (*m_itrp).y();
 }
 
 // 矫正方块移动防止出范围
@@ -64,15 +78,29 @@ void MoveBlock11::CheckArea(QPoint &stepP)
 // 上移
 void MoveBlock11::MoveShang(bool flag)
 {
+	if (m_itrp == m_hisPos.end())
+	{
+		ui.pushButton_next->setDisabled(true);
+	}
+
+	ui.pushButton_up->setDisabled(false);
 	if (m_saveflag)
 	{
 		InitWidget();
 		m_saveflag = false;
 	}
+
+	if (m_itrp != m_hisPos.end())
+	{
+		m_hisPos.erase(m_itrp, m_hisPos.end());
+	}
 	
 	//qDebug("shang");
 	p_orin.setY(p_orin.y() - m_moveCell);
 	CheckArea(p_orin);
+
+	m_hisPos.append(p_orin);
+	m_itrp = m_hisPos.end();
 
 	// 传到界面上显示
 	ui.widget->MoveToArea(p_orin, m_flag);
@@ -80,15 +108,29 @@ void MoveBlock11::MoveShang(bool flag)
 // 下移
 void MoveBlock11::MoveXia(bool flag)
 {
+	if (m_itrp == m_hisPos.end())
+	{
+		ui.pushButton_next->setDisabled(true);
+	}
+
+	ui.pushButton_up->setDisabled(false);
 	if (m_saveflag)
 	{
 		InitWidget();
 		m_saveflag = false;
 	}
 
+	if (m_itrp != m_hisPos.end())
+	{
+		m_hisPos.erase(m_itrp, m_hisPos.end());
+	}
+
 	//qDebug("xia");
 	p_orin.setY(p_orin.y() + m_moveCell);
 	CheckArea(p_orin);
+	
+	m_hisPos.append(p_orin);
+	m_itrp = m_hisPos.end();
 
 	// 传到界面上显示
 	ui.widget->MoveToArea(p_orin, m_flag);
@@ -96,15 +138,29 @@ void MoveBlock11::MoveXia(bool flag)
 // 左移
 void MoveBlock11::MoveZuo(bool flag)
 {
+	if (m_itrp == m_hisPos.end())
+	{
+		ui.pushButton_next->setDisabled(true);
+	}
+
+	ui.pushButton_up->setDisabled(false);
 	if (m_saveflag)
 	{
 		InitWidget();
 		m_saveflag = false;
 	}
 
+	if (m_itrp != m_hisPos.end())
+	{
+		m_hisPos.erase(m_itrp, m_hisPos.end());
+	}
+
 	//qDebug("zuo");
 	p_orin.setX(p_orin.x() - m_moveCell);
 	CheckArea(p_orin);
+	
+	m_hisPos.append(p_orin);
+	m_itrp = m_hisPos.end();
 
 	// 传到界面上显示
 	ui.widget->MoveToArea(p_orin, m_flag);
@@ -112,15 +168,29 @@ void MoveBlock11::MoveZuo(bool flag)
 // 右移
 void MoveBlock11::MoveYou(bool flag)
 {
+	if (m_itrp == m_hisPos.end())
+	{
+		ui.pushButton_next->setDisabled(true);
+	}
+
+	ui.pushButton_up->setDisabled(false);
 	if (m_saveflag)
 	{
 		InitWidget();
 		m_saveflag = false;
 	}
 
+	if (m_itrp != m_hisPos.end())
+	{
+		m_hisPos.erase(m_itrp, m_hisPos.end());
+	}
+
 	//qDebug("you");
 	p_orin.setX(p_orin.x() + m_moveCell);
 	CheckArea(p_orin);
+	
+	m_hisPos.append(p_orin);
+	m_itrp = m_hisPos.end();
 
 	// 传到界面上显示
 	ui.widget->MoveToArea(p_orin, m_flag);
@@ -129,10 +199,37 @@ void MoveBlock11::MoveYou(bool flag)
 // 上一步
 void MoveBlock11::UpStep(bool flag)
 {
-
+	//QList<QPoint>::iterator itp = m_hisPos.end();
+	//--m_itrp;
+	qDebug() << (*m_itrp).x() << (*m_itrp).y();
+	if (m_itflag)
+	{
+		m_itrp = m_itrp - 2;
+		m_itflag = false;
+	}
+	else
+	{
+		m_itrp = m_itrp - 1;
+	}
+	m_itrp = m_itrp - 2;
+	if (m_itrp == m_hisPos.begin())
+	{
+		ui.pushButton_up->setDisabled(true);
+	}
+	ui.widget->MoveToArea(*m_itrp, m_flag);
+	ui.pushButton_next->setDisabled(false);
+	QPoint temp_p(*m_itrp);
+	qDebug() << temp_p.x() << temp_p.y();
 }
 // 下一步
 void MoveBlock11::NextStep(bool flag)
 {
+	m_itrp = m_itrp + 1;
+	
+	ui.widget->MoveToArea(*m_itrp, m_flag);
 
+	if (m_itrp == m_hisPos.end())
+	{
+		ui.pushButton_next->setDisabled(true);
+	}
 }

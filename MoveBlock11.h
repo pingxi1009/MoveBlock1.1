@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QList>
 #include "ui_MoveBlock11.h"
 
 class MoveBlock11 : public QMainWindow
@@ -23,6 +24,11 @@ private:
 	int m_moveCell;
 	bool m_flag;
 	bool m_saveflag;
+	bool m_itflag;
+
+	// 设置上一步下一步列表
+	QList<QPoint> m_hisPos;
+	QList<QPoint>::iterator m_itrp;
 
 private slots:
 	// 上移

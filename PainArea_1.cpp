@@ -19,7 +19,7 @@ void PainArea_1::MoveToArea(QPoint p, bool flag)
 	m_point.setX(p.x());
 	m_point.setY(p.y());
 	m_flag = flag;
-	qDebug() << m_point.x() << "  " << m_point.y();
+	//qDebug() << m_point.x() << "  " << m_point.y();
 	update();	// ÖØ»æ
 }
 
@@ -75,8 +75,8 @@ void PainArea_1::paintEvent(QPaintEvent * event)
 	} 
 	else
 	{
-		qDebug() << m_point.x() << "    " << m_point.y();
-		qDebug() << LittleToBig(m_point).x() << " " << LittleToBig(m_point).y();
+		//qDebug() << m_point.x() << "    " << m_point.y();
+		//qDebug() << LittleToBig(m_point).x() << " " << LittleToBig(m_point).y();
 		painter.drawRect(LittleToBig(m_point).x(), LittleToBig(m_point).y(), (h - 4) / 3, (h - 4) / 3);
 	}
 	//painter.drawRect(LittleToBig(m_point).x(), LittleToBig(m_point).y(), (h - 4) / 3, (h - 4) / 3);
