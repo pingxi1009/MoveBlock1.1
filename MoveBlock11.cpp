@@ -211,11 +211,12 @@ void MoveBlock11::UpStep(bool flag)
 	{
 		m_itrp = m_itrp - 1;
 	}
-	m_itrp = m_itrp - 2;
+
 	if (m_itrp == m_hisPos.begin())
 	{
 		ui.pushButton_up->setDisabled(true);
 	}
+
 	ui.widget->MoveToArea(*m_itrp, m_flag);
 	ui.pushButton_next->setDisabled(false);
 	QPoint temp_p(*m_itrp);
@@ -228,8 +229,11 @@ void MoveBlock11::NextStep(bool flag)
 	
 	ui.widget->MoveToArea(*m_itrp, m_flag);
 
-	if (m_itrp == m_hisPos.end())
+	QList<QPoint>::iterator itrp_Temp;
+	itrp_Temp = m_itrp + 1;
+	if (itrp_Temp == m_hisPos.end())
 	{
 		ui.pushButton_next->setDisabled(true);
+		ui.pushButton_up->setDisabled(false);
 	}
 }
