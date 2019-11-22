@@ -223,6 +223,8 @@ void MoveBlock11::NextStep(bool flag)
 	ui.widget->MoveToArea(*m_itrp, m_flag);
 
 	QList<QPoint>::iterator itrp_Temp;
+
+	// µ½Ä©Î²»Ö¸´°´¼ü
 	itrp_Temp = m_itrp + 1;
 	if (itrp_Temp == m_hisPos.end())
 	{
