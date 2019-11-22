@@ -6,6 +6,7 @@ public:
 	PainArea_1(QWidget *parent);
 	~PainArea_1();
 
+	// 移动函数
 	void MoveToArea(QPoint p, bool flag);
 
 	// 大长方形转到小正方形中的坐标

@@ -21,10 +21,10 @@ private:
 	Ui::MoveBlock11Class ui;
 
 	QPoint p_orin;
-	int m_moveCell;
-	bool m_flag;
-	bool m_saveflag;
-	bool m_itflag;
+	int m_moveCell;	// 单位移动的距离
+	bool m_flag;	// 传输标记
+	bool m_saveflag;// 记录是否需要保存标记
+	bool m_itflag;	// 迭代器
 
 	// 设置上一步下一步列表
 	QList<QPoint> m_hisPos;
