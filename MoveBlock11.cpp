@@ -33,11 +33,6 @@ void MoveBlock11::InitWidget()
 	p_orin.setX(m_moveCell);
 	p_orin.setY(m_moveCell);
 
-	////测试
-	//QList<int> temp_i;
-	//temp_i.append(1);
-	//qDebug() << *temp_i.begin() << " " << *temp_i.end();
-
 	// 初始化第一个点
 	m_hisPos.append(p_orin);
 	m_itrp = m_hisPos.end();
@@ -199,8 +194,6 @@ void MoveBlock11::MoveYou(bool flag)
 // 上一步
 void MoveBlock11::UpStep(bool flag)
 {
-	//QList<QPoint>::iterator itp = m_hisPos.end();
-	//--m_itrp;
 	qDebug() << (*m_itrp).x() << (*m_itrp).y();
 	if (m_itflag)
 	{
