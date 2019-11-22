@@ -1,3 +1,4 @@
-﻿  MoveBlock11.cpp
+﻿  moc MoveBlock11.h
+  moc_MoveBlock11.cpp
   MoveBlock1.1.vcxproj -> D:\Git Store\develop\x64\Debug\MoveBlock1.1.exe
   MoveBlock1.1.vcxproj -> D:\Git Store\develop\x64\Debug\MoveBlock1.1.pdb (Full PDB)
